@@ -12,9 +12,11 @@ return [
     | based disks are available to your application. Just store away!
     |
     */
+    //Salvar arquivos no diretorio privado.
+    // 'default' => env('FILESYSTEM_DRIVER', 'local'),
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
-
+    //Salvar arquivos no diretorio Public
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks

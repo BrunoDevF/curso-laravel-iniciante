@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdateProduct;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -34,23 +35,34 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\StoreUpdateProduct  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(StoreUpdateProduct $request)
+    {   
+        dd('OK!!!');
+
+
+        // Essa é a maneira mais facil de validar campos
+        // Porem nao é recomendada
+        // $request->validate([
+        //     'name'=> 'required|min:3|max:255',
+        //     'description'=> 'nullable|min:15|max:10000',
+        //     'photo' => 'required|image'
+        // ]);
+        // dd('OK! Cadastrado com sucesso');
         //dd($request->all());
         // $name = $request->input('name');
         // $description = $request->input('description');
         // return [$name, $description];
 
-        if($request->file('photo')->isValid()){
-            // dd($request->file('photo')->store('products'));
+        // if($request->file('photo')->isValid()){
+        //     // dd($request->file('photo')->store('products'));
 
-            //arquivo com nome personalizado
-            $fileName = $request->name.'.'.$request->photo->extension();
-            dd($request->file('photo')->storeAs('products',$fileName));
-        }
+        //     //arquivo com nome personalizado
+        //     $fileName = $request->name.'.'.$request->photo->extension();
+        //     dd($request->file('photo')->storeAs('products',$fileName));
+        // }
 
     }
 
